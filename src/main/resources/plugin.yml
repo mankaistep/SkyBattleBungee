@@ -1,0 +1,4 @@
+name: SkyBattleBungee
+main: manaki.plugin.skybattlebungee.SkyBattleBungee
+version: 1.0
+author: Manaki
