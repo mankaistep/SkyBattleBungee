@@ -17,8 +17,8 @@ import java.io.IOException;
 
 public class Executor {
 
-    public static final String MAIN_SERVER = "lobby";
-    public static final String GAME_SERVER = "test";
+    public static final String MAIN_SERVER = "sorasky3";
+    public static final String GAME_SERVER = "skybattle";
 
     private Plugin plugin;
 
