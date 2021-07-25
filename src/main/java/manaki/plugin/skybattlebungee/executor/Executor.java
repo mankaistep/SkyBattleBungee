@@ -4,6 +4,7 @@ import manaki.plugin.skybattlebungee.SkyBattleBungee;
 import manaki.plugin.skybattlebungee.request.JoinRequest;
 import manaki.plugin.skybattlebungee.request.QuitRequest;
 import manaki.plugin.skybattlebungee.request.StartRequest;
+import manaki.plugin.skybattlebungee.request.result.PlayerResult;
 import manaki.plugin.skybattlebungee.team.Team;
 import manaki.plugin.skybattlebungee.team.TeamPlayer;
 import net.md_5.bungee.BungeeCord;
@@ -67,6 +68,23 @@ public class Executor {
         var out = new DataOutputStream(stream);
         try {
             out.writeUTF("skybattle-quit");
+            out.writeUTF(rs);
+        } catch (IOException e) {
+            ProxyServer.getInstance().getLogger().severe("An I/O error occurred!");
+        }
+        mainSv.sendData(SkyBattleBungee.CHANNEL, stream.toByteArray());
+    }
+
+    public void sendResult(PlayerResult pr) {
+        // Server
+        ServerInfo mainSv = ProxyServer.getInstance().getServerInfo(MAIN_SERVER);
+
+        // Send request
+        var rs = pr.toString();
+        var stream = new ByteArrayOutputStream();
+        var out = new DataOutputStream(stream);
+        try {
+            out.writeUTF("skybattle-player-result");
             out.writeUTF(rs);
         } catch (IOException e) {
             ProxyServer.getInstance().getLogger().severe("An I/O error occurred!");

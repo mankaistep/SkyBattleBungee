@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder;
 import manaki.plugin.skybattlebungee.request.JoinRequest;
 import manaki.plugin.skybattlebungee.request.QuitRequest;
 import manaki.plugin.skybattlebungee.request.StartRequest;
+import manaki.plugin.skybattlebungee.request.result.PlayerResult;
 
 public class Requests {
 
@@ -17,6 +18,10 @@ public class Requests {
 
     public static JoinRequest parseJoin(String s) {
         return new GsonBuilder().create().fromJson(s, JoinRequest.class);
+    }
+
+    public static PlayerResult parseResult(String s) {
+        return new GsonBuilder().create().fromJson(s, PlayerResult.class);
     }
 
 }

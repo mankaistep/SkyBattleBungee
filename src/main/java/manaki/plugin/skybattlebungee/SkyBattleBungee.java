@@ -50,6 +50,11 @@ public class SkyBattleBungee extends Plugin implements Listener {
             var jr = Requests.parseJoin(data);
             this.executor.sendJoin(jr);
         }
+
+        else if (type.equalsIgnoreCase("skybattle-player-result")) {
+            var pr = Requests.parseResult(data);
+            this.executor.sendResult(pr);
+        }
     }
 
 }
